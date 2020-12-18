@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Roboto,HelveticaNeue,Arial,sans-serif;
+    /* background: #FFFFCC; */
+}
+.app {
+    position: relative;    
+    z-index: 2;
+}
+.bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #FFFFCC;
+    background-position: center center;
+    background-size: cover;
+    filter: blur(2px);
+}
+.mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, .1);
+}
+
+.hide {
+    display: none;
+}
+
+.timer {
+    color: #fff;
+    font-size: 36px;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    position: absolute;
+    top: 30px;
+}
+
+.love {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: url(../img/love.png) 0 0 no-repeat;
+    background-size: 2900%;
+    position: absolute;
+    z-index: 101;
+  }
+@keyframes heart-burst {
+    0% {
+        background-position: 0;
+    }
+    to {
+        background-position: 100%;
+    }
+}
+
+#typed {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8vh;
+    font-size: 18px;
+}
