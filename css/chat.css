@@ -29,7 +29,7 @@
 }
 
 .message-left {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     text-align: left;
 }
 .message-left .msg-content {
@@ -42,8 +42,8 @@
     display: inline-block;
     background: #fff;
     padding: 15px;
-    font-size: 14px;
-    color: #999;
+    font-size: 16px;
+    color: #333;
     border-radius: 10px;
     font-weight: 100;
     line-height: 1.5em;
@@ -51,7 +51,7 @@
 
 .message-right {
     text-align: right;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 .message-right .msg-content {
     padding-right: 60px;
@@ -63,7 +63,7 @@
     display: inline-block;
     background: #1aad19;
     padding: 15px;
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     border-radius: 10px;
     line-height: 1.5em;
