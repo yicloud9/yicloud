@@ -370,7 +370,7 @@ const typedOptions = [
     {strings: ['这种可劲的甜蜜，以后可以多点，就很享受，嘿嘿'], typeSpeed: 100},
     {strings: ['今天过后，就开始甜蜜的叫莹宝啦，但黄老师这个称呼还是会想起来'], typeSpeed: 100},
     {strings: ['莹宝真是超级好，给我做了牛肉^1000 虽然吃不到，但心满意足'], typeSpeed: 100},
-    {strings: ['莹宝给我发了惊艳的照片，真美啊，我的壁纸库又补充了不少，嘿嘿'], typeSpeed: 100},
+    {strings: ['莹宝给发了惊艳的照片，真好看，我的壁纸库又补充了不少，嘿嘿'], typeSpeed: 100},
     {strings: ['12.12又是个小惊喜，可把我乐坏了，美丽可爱的莹宝'], typeSpeed: 100},
     {strings: ['12.13出现了个小意外，惹莹宝不开心了，我承诺以后会加倍疼莹宝'], typeSpeed: 100},
     {strings: ['斯人若彩虹，遇上方知有'], typeSpeed: 100},
@@ -412,6 +412,7 @@ const typedOptions = [
     }
     $scene1.fadeIn()
     loadingImage().then(()=> {
+        return
         $scene1.fadeOut()
         setTimeout(()=> {
             $('#snow').fadeIn() 
