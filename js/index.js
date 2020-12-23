@@ -405,7 +405,7 @@ const typedOptions = [
         $('#snow').fadeIn() 
         const $music = $('#music')
         $('body').on('click', function () {
-            $music.attr('src', './music/wanderful.mp3')
+            $music.attr('src', 'https://cdn.brambling.cn/temp/wanderful.mp3')
             $music[0].play()
         })
         return
@@ -477,7 +477,7 @@ const typedOptions = [
                 initCountdown(t)
                 fire()
                 const $music = $('#music')
-                $music.attr('src', './music/wanderful.mp3')
+                $music.attr('src', 'https://cdn.brambling.cn/temp/wanderful.mp3')
                 $music[0].play()
             }
         })
