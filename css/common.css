@@ -147,7 +147,7 @@ body {
     bottom: 0px;
     right: 0px;
     z-index: 100;
-    background: #fbffb9 url('../img/china.png') no-repeat left center;
+    background: #fbffb9 url('https://cdn.brambling.cn/temp/china.png') no-repeat left center;
     animation: bgMove 20s;
 }
 @keyframes bgMove {
