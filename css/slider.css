@@ -109,22 +109,25 @@ a {
 .slider .nav .next,
 .slider .nav .prev {
   height: 2rem;
-  width: 2rem;
+  line-height: 2rem;
+    border-bottom: 1px solid #fff;
+  width: 3rem;
   position: absolute;
   bottom: 2vh;
   cursor: pointer;
   z-index: 3;
   transition: transform 0.3s;
   box-shadow: 0 0 4rpx 2rpx rgba(10, 9, 8, 0.2);
+  color: #fff;
+  font-size: 16px;
 }
 .slider .nav .next {
   right: 2rem;
-  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M 19 8 L 19 11 L 1 11 L 1 13 L 19 13 L 19 16 L 23 12 L 19 8 z' fill='white'/%3E%3C/svg%3E");
+  text-align: right;
 }
 
 .slider .nav .prev {
   left: 2rem;
-  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M 5 8 L 1 12 L 5 16 L 5 13 L 23 13 L 23 11 L 5 11 L 5 8 z' fill='white'/%3E%3C/svg%3E");
 }
 
 

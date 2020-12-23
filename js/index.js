@@ -115,7 +115,7 @@ const chatMessages = [
 
     [
         {name: 'ms13', delay: 1000, align: 'left', msg: '你的好多态度和细节,都觉得很温柔.人生看得就很清楚.'},
-        {name: 'ms14', delay: 1000, align: 'right', msg: '那感觉睡,你笑起来很好看的你应该知道的'},
+        {name: 'ms14', delay: 1000, align: 'right', msg: '态度确实有，细节嘛，暂时别夸，这个确实欠缺很多'},
     ],
     [
         {name: 'ms13', delay: 1000, align: 'left', msg: '我的毕业论文，要写到：感谢曾先生对我学习的督促和支持'},
@@ -268,7 +268,7 @@ const chatMessages = [
 ]
 const timeList = [
     { year: 2020, month: 10, day: 4, id: 1},
-    /* { year: 2020, month: 10, day: 4, id: 1},
+    { year: 2020, month: 10, day: 4, id: 1},
     { year: 2020, month: 10, day: 5, id: 2},
     { year: 2020, month: 10, day: 5, id: 2},
     { year: 2020, month: 10, day: 6, id: 2},
@@ -320,21 +320,21 @@ const timeList = [
     { year: 2020, month: 12, day: 15, id: 40},
     { year: 2020, month: 12, day: 16, id: 41},
     { year: 2020, month: 12, day: 18, id: 42},
-    { year: 2020, month: 12, day: 20, id: 42}, */
+    { year: 2020, month: 12, day: 20, id: 42},
 ]
 const typedOptions = [
-    {strings: ['再次寒暄时，依然是熟悉的味道, ...感觉回来了，一切都还在 ^1000', '没想到，第一天聊了很久，华丽的开场'], typeSpeed: 100},
+    {strings: ['再次寒暄时，依然是熟悉的味道, ...感觉回来了，一切都还在。 ^1000 没想到，第一天聊了很久，华丽的开场，嘿嘿'], typeSpeed: 100},
     {strings: ['知道了黄老师去英国的信息，有丝丝不舍, ^1000 也有一点遗憾'], typeSpeed: 100},
     {strings: ['因为对艺术的敬仰，聊起了专业的点点滴滴'], typeSpeed: 100},
-    {strings: ['自然，今天也叫聊到了我的专业'], typeSpeed: 100},
-    {strings: ['黄老师碰到了问题，我开始炫技了，嘿嘿嘿 ^1000', '内心觉得被人需要还是蛮不错的'], typeSpeed: 100},
+    {strings: ['自然，今天也聊到了我的专业'], typeSpeed: 100},
+    {strings: ['黄老师碰到了问题，我开始炫技了，嘿嘿嘿 ^1000 内心觉得被人需要还是蛮不错的',], typeSpeed: 100},
     {strings: ['聊到了黄老师的家人，也聊到了曾经发生过的故事，今晚感觉上头了，聊了好久'], typeSpeed: 100},
     {strings: ['没想到黄老师还吃到了鱼糕，那话题自然就是家乡了'], typeSpeed: 100},
     {strings: ['今天聊到了各自喜欢的偶像，交换了精神食粮'], typeSpeed: 100},
-    {strings: ['回到了工作的城市，城市这个词让我们想起来旅行，工作'], typeSpeed: 100},
+    {strings: ['回到了工作的城市，城市这个词让我们聊起了旅行，工作 ^1000 以后的想法'], typeSpeed: 100},
     {strings: ['今天知道了黄老师还叫黄三岁，也知道了会说土味情话的侄儿'], typeSpeed: 100},
     {strings: ['聊到今天，黄老师第一次12点前睡觉，哈哈哈'], typeSpeed: 100},
-    {strings: ['因为特殊时期，自然就说到了疫情，讨论黄老师隔离应该怎么吃 ^1000', '吃货无疑了'], typeSpeed: 100},
+    {strings: ['因为特殊时期，自然就说到了疫情，讨论黄老师隔离应该怎么吃 ^1000 吃货无疑了'], typeSpeed: 100},
     {strings: ['这几天提到的比较多的就是黄老师的在线课程了，不过偶然间知道了黄老师的手艺，真是了不起'], typeSpeed: 100},
     {strings: ['哈哈哈，知道了黄老师的还有个小本本，有点厉害了，居然还记得那次换司机开车'], typeSpeed: 100},
     {strings: ['未雨绸缪，帮黄老师想想去了英国之后怎么办，开始准备去英国了'], typeSpeed: 100},
@@ -343,36 +343,36 @@ const typedOptions = [
     {strings: ['黄老师第一次外出分享，都是美照，尤其那张香车美女，嘿嘿'], typeSpeed: 100},
     {strings: ['今天1024，本身没啥特殊的，但收到了黄老师的祝福，开心开心极了'], typeSpeed: 100},
     {strings: ['原来黄老师还有个公众号，不得不说，文字写的真美，就和黄老师一样美'], typeSpeed: 100},
-    {strings: ['听完这句话，我就埋下了种子，嘿嘿嘿'], typeSpeed: 100},
+    {strings: ['听完这句话，我就暗想，你可别忘了，嘿嘿嘿'], typeSpeed: 100},
     {strings: ['黄老师开始了一人饮酒醉的尝试，我想，应该很迷人'], typeSpeed: 100},
     {strings: ['Wonderful tonight，虽然不是双十一，但有了陪伴'], typeSpeed: 100},
 
     {strings: ['上天派给我的任务是待你温柔呀'], typeSpeed: 100},
-    {strings: ['"曾先生"第一次出现在我的视野，真好，但愿你记得，哈哈哈'], typeSpeed: 100},
-    {strings: ['今天莹宝搬到了新的宿舍，想想就开心'], typeSpeed: 100},
+    {strings: ['"曾先生"第一次出现在我的视野，真好，但愿你记得上面那句，哈哈哈'], typeSpeed: 100},
+    {strings: ['今天黄老师搬到了新的宿舍，想想就开心'], typeSpeed: 100},
     {strings: ['找到了小睡眠，尝试着帮黄老师解决睡眠问题，睡不着真让人心疼'], typeSpeed: 100},
-    {strings: ['黄老师第一次在教室上课，感觉就很新奇，棒'], typeSpeed: 100},
+    {strings: ['黄老师第一次在教室上课，感觉就很新奇，羡慕'], typeSpeed: 100},
     {strings: ['不知道大佬的萝卜腌了没，哈哈哈哈'], typeSpeed: 100},
-    {strings: ['看了黄老师喜欢的电影，一起看电影的日子得尽早安排上'], typeSpeed: 100},
-    {strings: ['黄老师开始了第一堂教学'], typeSpeed: 100},
-    {strings: ['今天意外的感冒了，感觉黄老师的关心无时不在，距离也越来越近了'], typeSpeed: 100},
+    {strings: ['看了黄老师喜欢的电影，没想到和黄老师的品味差不太多，后面一起看电影的日子得尽早安排上'], typeSpeed: 100},
+    {strings: ['黄老师开始了第一堂教学，带我体验艺术的快乐，还得到了黄老师的谬赞，就很棒'], typeSpeed: 100},
+    {strings: ['被打脸了，意外的感冒了，不过，收获到了黄老师时刻的关心，感觉和和黄老师的距离也越来越近了'], typeSpeed: 100},
     {strings: ['在黄老师无微不至的关怀下，我的感冒好了，比个心'], typeSpeed: 100},
     {strings: ['你是我一眼望不尽的满心欢喜'], typeSpeed: 100},
-    {strings: ['黄老师发了一张自拍，我沉沦了，真迷人'], typeSpeed: 100},
-    {strings: ['聊到了曾经的一段故事，给黄老师留下了磨叽的印象'], typeSpeed: 100},
+    {strings: ['黄老师发了一张自拍，真迷人，眼前的黄老师越看越喜欢'], typeSpeed: 100},
+    {strings: ['聊到了曾经的一段故事，不小心给黄老师留下了磨叽的印象'], typeSpeed: 100},
     {strings: ['一生只够爱一个人，就是你了，当然今天又磨叽了'], typeSpeed: 100},
     {strings: ['第一次炒粉还不错，因为多了一个份调料，黄老师的甜'], typeSpeed: 100},
-    {strings: ['我喜欢的人，有光，从此我便有了光'], typeSpeed: 100},
+    {strings: ['我喜欢的人，有光，从此我也便有了光'], typeSpeed: 100},
     {strings: ['有了黄老师之后，开始对未来有了期许'], typeSpeed: 100},
     {strings: ['我想说：你的名字 ，是我见过最短的情诗'], typeSpeed: 100},
     {strings: ['此时此刻，你已经看到了，哈哈哈哈'], typeSpeed: 100},
-    {strings: ['黄老师去英国后的第一次旅行，景美黄老师更美'], typeSpeed: 100},
-    {strings: ['可劲的甜蜜，以后可以多点，嘿嘿'], typeSpeed: 100},
+    {strings: ['黄老师去英国后的第一次旅行，景美但黄老师更美'], typeSpeed: 100},
+    {strings: ['可劲的甜蜜，以后可以多点，就很享受，嘿嘿'], typeSpeed: 100},
     {strings: ['今天过后，就开始甜蜜的叫莹宝啦，但黄老师这个称呼还是会想起来'], typeSpeed: 100},
-    {strings: ['莹宝真是超级好，给我做了牛肉'], typeSpeed: 100},
+    {strings: ['莹宝真是超级好，给我做了牛肉^1000 虽然吃不到，但心满意足'], typeSpeed: 100},
     {strings: ['莹宝给我发了惊艳的照片，真美啊，我的壁纸库又补充了不少，嘿嘿'], typeSpeed: 100},
     {strings: ['12.12又是个小惊喜，可把我乐坏了，美丽可爱的莹宝'], typeSpeed: 100},
-    {strings: ['12.13出现了个小意外，惹莹宝不开心了，以后会加倍疼莹宝'], typeSpeed: 100},
+    {strings: ['12.13出现了个小意外，惹莹宝不开心了，我承诺以后会加倍疼莹宝'], typeSpeed: 100},
     {strings: ['斯人若彩虹，遇上方知有'], typeSpeed: 100},
     {strings: ['第一次叫莹宝起床，好激动呀，世人见了你都称心动，唯独我醉了三千里'], typeSpeed: 100},
     {strings: ['莹宝终于写完了论文，终于可以放松下了，但熬了个夜，心疼'], typeSpeed: 100},
@@ -398,14 +398,27 @@ const typedOptions = [
     let oldTime = null
 
     initTapLove()
+    const res = initCountdown()
+    if(res) {
+        $scene5.fadeIn()
+        fire()
+        $('#snow').fadeIn() 
+        const $music = $('#music')
+        $('body').on('click', function () {
+            $music.attr('src', './music/wanderful.mp3')
+            $music[0].play()
+        })
+        return
+    }
+    $scene1.fadeIn()
     loadingImage().then(()=> {
         $scene1.fadeOut()
         setTimeout(()=> {
-            $('#snow').css('opacity', 1) 
+            $('#snow').fadeIn() 
             $scene2.fadeIn()
         }, 200)
     })
-
+    
     toggleBg(sceneIndex)
     $viewStoryBtn.on('click', function() {
         $scene2.fadeOut()
@@ -413,9 +426,9 @@ const typedOptions = [
         setTimer(storyIndex)
         typed(storyIndex)
         global.startMessage(storyIndex)
+        $('#music')[0].play()
     })
     const {next, prev } = initSlider()
-
     nextBtn.onclick = function() {
         storyIndex++
         next(storyIndex)
@@ -425,8 +438,10 @@ const typedOptions = [
             destroyedSlider(()=> {
                 const slider = document.querySelector('.slider-wrap')
                 document.getElementById('app').removeChild(slider)
-                toggleBg()
+                toggleBg('en')
+
                 $scene4.fadeIn()
+                new Typed('#tail-content', {strings: ['回忆甚是甜蜜，甜蜜过后，是不是得做选择了呀，"点击"我看看'], typeSpeed: 100});
             })
         } else {
             toggleBg(storyIndex)
@@ -439,18 +454,44 @@ const typedOptions = [
         prev(storyIndex)
         typed(storyIndex)
         global.startMessage(storyIndex)
-        if(index >= 0) {
+        if(storyIndex >= 0) {
             toggleBg(storyIndex)
             setTimer(storyIndex)
             typed(storyIndex)
         }
     }
 
+    $('#tail-content').on('click', function() {
+        Swal.fire(
+            '莹宝',
+            '喜欢你不是三分钟热度，是蓄谋已久后的深思熟虑，所以...，你愿意做我的<strong>女朋友</strong>么？',
+        ).then(res => {
+            if(res.isConfirmed) {
+                const o = new Image()
+                const t = new Date().getTime()
+                localStorage.setItem('love_time', t) 
+                o.src = 'https://www.brambling.cn/static/images/mp_code.jpg?t=' + t
+                o.onLoad = function () {}
+                $scene4.fadeOut()
+                $scene5.fadeIn()
+                initCountdown(t)
+                fire()
+                const $music = $('#music')
+                $music.attr('src', './music/wanderful.mp3')
+                $music[0].play()
+            }
+        })
+    })
+
     function toggleBg(id) {
         if(id === undefined) {
             bgNode.style.backgroundImage = ''    
         } else {
-            bgNode.style.backgroundImage = 'url(./img/bg' + (id+1) + '.jpeg)'
+            if(typeof id === 'number') {
+                bgNode.style.backgroundImage = 'url(./img/bg' + ((id+1)%10) + '.jpeg)'
+            } else {
+                bgNode.style.backgroundImage = 'url(./img/' + id + '.jpeg)'
+            }
         }
     }
     function setTimer(index) {
@@ -496,7 +537,7 @@ function loadingImage() {
                     document.getElementById('loadingProgress').innerHTML = count + '%'
                 }
                 progress()
-            }, 0)
+            }, 100)
         }
         progress()
     })
@@ -594,13 +635,13 @@ function initSlider() {
     function next(index) {
         if (isPlaying) return
         isPlaying = true
-        updateSlider(index)
+        // updateSlider(index)
     }
 
     function prev(index) {
         if (isPlaying) return
         isPlaying = true
-        updateSlider(index)
+        // updateSlider(index)
     }
     
     return {
@@ -745,6 +786,46 @@ function destroyedSlider(cb) {
     init()
 })()
 
+function initCountdown(timestamp) {
+    let startTimer
+    if(!timestamp) {
+        startTimer = localStorage.getItem('love_time')
+        if(startTimer) {
+            // startTimer = Number(startTimer)
+            startTimer = 1606621080000 // new Date('2020.11.29 11:38')
+        } else {
+            return false
+        }
+    } else {
+        // startTimer = new Date(timestamp).getTime()
+        startTimer = 1606621080000
+    }
+    // countdown
+    let timer = setInterval(function() {
+        const today = new Date().getTime();
+        let diff = today - startTimer
+
+        // math
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        // display
+        document.getElementById("countdown-timer").innerHTML =
+            "<div class=\"days timer_heart\"> \
+        <div class=\"numbers \">" + days + "</div><span class=\"unit\">天</span></div> \
+        <div class=\"hours timer_heart\"> \
+        <div class=\"numbers \">" + hours + "</div><span class=\"unit\">时</span></div> \
+        <div class=\"minutes timer_heart\"> \
+        <div class=\"numbers \">" + minutes + "</div><span class=\"unit\">分</span></div> \
+        </div>";
+
+        // <div class=\"seconds\"> \<div class=\"numbers\">" + seconds + "</div>sec</div> \
+
+    }, 1000);
+    return true
+}
+
 
 ;(function (win) {
     
@@ -788,3 +869,376 @@ function destroyedSlider(cb) {
     }
     win.startMessage = start
 })(window)
+
+
+function fire() {
+    var RENDERER = {
+        LEAF_INTERVAL_RANGE : {min : 100, max : 200},
+        FIREWORK_INTERVAL_RANGE : {min : 20, max : 200},
+        SKY_COLOR : 'hsla(210, 60%, %luminance%, 0.2)',
+        STAR_COUNT : 100,
+        
+        init : function(){
+            this.setParameters();
+            this.reconstructMethod();
+            this.createTwigs();
+            this.createStars();
+            this.render();
+        },
+        setParameters : function(){
+            this.$container = $('#jsi-fireworks-container');
+            this.width = this.$container.width();
+            this.height = this.$container.height();
+            this.distance = Math.sqrt(Math.pow(this.width / 2, 2) + Math.pow(this.height / 2, 2));
+            this.contextFireworks = $('<canvas class="fire-canvas" />').attr({width : this.width, height : this.height}).appendTo(this.$container).get(0).getContext('2d');
+            this.contextTwigs = $('<canvas class="fire-canvas" />').attr({width : this.width, height : this.height}).appendTo(this.$container).get(0).getContext('2d');
+            
+            this.twigs = [];
+            this.leaves = [new LEAF(this.width, this.height, this)];
+            this.stars = [];
+            this.fireworks = [new FIREWORK(this.width, this.height, this)];
+            
+            this.leafInterval = this.getRandomValue(this.LEAF_INTERVAL_RANGE) | 0;
+            this.maxFireworkInterval = this.getRandomValue(this.FIREWORK_INTERVAL_RANGE) | 0;
+            this.fireworkInterval = this.maxFireworkInterval;
+        },
+        reconstructMethod : function(){
+            this.render = this.render.bind(this);
+        },
+        getRandomValue : function(range){
+            return range.min + (range.max - range.min) * Math.random();
+        },
+        createTwigs : function(){
+            this.twigs.push(new TWIG(this.width, this.height, 0, 0, Math.PI * 3 / 4, 0));
+            this.twigs.push(new TWIG(this.width, this.height, this.width, 0, -Math.PI * 3 / 4, Math.PI));
+            this.twigs.push(new TWIG(this.width, this.height, 0, this.height, Math.PI / 4, Math.PI));
+            this.twigs.push(new TWIG(this.width, this.height, this.width, this.height, -Math.PI / 4, 0));
+        },
+        createStars : function(){
+            for(var i = 0, length = this.STAR_COUNT; i < length; i++){
+                this.stars.push(new STAR(this.width, this.height, this.contextTwigs, this));
+            }
+        },
+        render : function(){
+            requestAnimationFrame(this.render);
+            
+            var maxOpacity = 0,
+                contextTwigs = this.contextTwigs,
+                contextFireworks = this.contextFireworks;
+            
+            for(var i = this.fireworks.length - 1; i >= 0; i--){
+                maxOpacity = Math.max(maxOpacity, this.fireworks[i].getOpacity());
+            }
+            contextTwigs.clearRect(0, 0, this.width, this.height);
+            contextFireworks.fillStyle = this.SKY_COLOR.replace('%luminance', 5 + maxOpacity * 15);
+            contextFireworks.fillRect(0, 0, this.width, this.height);
+            
+            for(var i = this.fireworks.length - 1; i >= 0; i--){
+                if(!this.fireworks[i].render(contextFireworks)){
+                    this.fireworks.splice(i, 1);
+                }
+            }
+            for(var i = this.stars.length - 1; i >= 0; i--){
+                this.stars[i].render(contextTwigs);
+            }
+            for(var i = this.twigs.length - 1; i >= 0; i--){
+                this.twigs[i].render(contextTwigs);
+            }
+            for(var i = this.leaves.length - 1; i >= 0; i--){
+                if(!this.leaves[i].render(contextTwigs)){
+                    this.leaves.splice(i, 1);
+                }
+            }
+            if(--this.leafInterval == 0){
+                this.leaves.push(new LEAF(this.width, this.height, this));
+                this.leafInterval = this.getRandomValue(this.LEAF_INTERVAL_RANGE) | 0;
+            }
+            if(--this.fireworkInterval == 0){
+                this.fireworks.push(new FIREWORK(this.width, this.height, this));
+                this.maxFireworkInterval = this.getRandomValue(this.FIREWORK_INTERVAL_RANGE) | 0;
+                this.fireworkInterval = this.maxFireworkInterval;
+            }
+        }
+    };
+    var TWIG = function(width, height, x, y, angle, theta){
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+        this.theta = theta;
+        this.rate = Math.min(width, height) / 500;
+    };
+    TWIG.prototype = {
+        SHAKE_FREQUENCY : Math.PI / 300,
+        MAX_LEVEL : 4,
+        COLOR : 'hsl(120, 60%, 1%)',
+        
+        renderBlock : function(context, x, y, length, level, angle){
+            context.save();
+            context.translate(x, y);
+            context.rotate(this.angle + angle * (level + 1));
+            context.scale(this.rate, this.rate);
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.lineTo(0, -length);
+            context.stroke();
+            context.fill();
+            
+            if(level == this.MAX_LEVEL){
+                length = length / (1 - level / 10);
+                
+                context.save();
+                context.beginPath();
+                context.scale(1 - level / 10, 1 - level / 10);
+                context.moveTo(0, -length);
+                context.quadraticCurveTo(30, -length - 20, 0, -length - 80);
+                context.quadraticCurveTo(-30, -length - 20, 0, -length);
+                context.stroke();
+                context.fill();
+                context.restore();
+                context.restore();
+            }else{
+                for(var i = -1; i <= 1; i += 2){
+                    context.save();
+                    context.translate(0, -40);
+                    context.rotate((Math.PI / 3 - Math.PI / 20 * level) * i);
+                    context.scale(1 - level / 10, 1 - level / 10);
+                    context.beginPath();
+                    context.moveTo(0, 0);
+                    context.lineTo(0, -length * 0.8);
+                    context.quadraticCurveTo(30, -length * 0.8 - 20, 0, -length * 0.8 - 80);
+                    context.quadraticCurveTo(-30, -length * 0.8 - 20, 0, -length * 0.8);
+                    context.stroke();
+                    context.fill();
+                    context.restore();
+                }
+                context.restore();
+                level++;
+                this.renderBlock(context, x + 40 * Math.sin(this.angle + angle * level), y - 40 * Math.cos(this.angle + angle * level) , length, level, angle);
+            }
+        },
+        render : function(context){
+            context.fillStyle = this.COLOR;
+            context.strokeStyle = this.COLOR;
+            context.lineWidth = 3;
+            this.renderBlock(context, this.x, this.y, 40, 0,  Math.PI / 48 * Math.sin(this.theta));
+            this.theta += this.SHAKE_FREQUENCY;
+            this.theta %= Math.PI * 2;
+        }
+    };
+    var LEAF = function(width, height, renderer){
+        this.width = width;
+        this.height = height;
+        this.renderer = renderer;
+        this.init();
+    };
+    LEAF.prototype = {
+        OFFSET : 100,
+        VELOCITY_Y : 3,
+        COLOR : 'hsl(120, 60%, 1%)',
+        
+        init : function(){
+            this.x = this.renderer.getRandomValue({min : 0, max : this.width});
+            this.y = -this.OFFSET;
+            this.vx = this.renderer.getRandomValue({min : 0, max : 1}) * (this.x <= this.width / 2 ? 1 : -1);
+            this.vy = this.VELOCITY_Y;
+            
+            this.rate = this.renderer.getRandomValue({min : 0.4, max : 0.8});
+            this.theta = this.renderer.getRandomValue({min : 0, max : Math.PI * 2});
+            this.deltaTheta = this.renderer.getRandomValue({min : -Math.PI / 300, max : Math.PI / 300});
+        },
+        render : function(context){
+            context.save();
+            context.filleStyle = this.COLOR;
+            context.translate(this.x, this.y);
+            context.rotate(this.theta);
+            context.scale(this.rate, this.rate);
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.quadraticCurveTo(30, -20, 0, -80);
+            context.quadraticCurveTo(-30, -20, 0, 0);
+            context.fill();
+            context.restore();
+            
+            this.x += this.vx * this.rate;
+            this.y += this.vy * this.rate;
+            this.theta += this.deltaTheta;
+            this.theta %= Math.PI * 2;
+            
+            return this.y <= this.height + this.OFFSET && this.x >= -this.OFFSET && this.x <= this.width + this.OFFSET;
+        }
+    };
+    var STAR = function(width, height, context, renderer){
+        this.width = width;
+        this.height = height;
+        this.renderer = renderer;
+        this.init(context);
+    };
+    STAR.prototype = {
+        RADIUS_RANGE : {min : 1, max : 4},
+        COUNT_RANGE : {min : 100, max : 1000},
+        DELTA_THETA : Math.PI / 30,
+        DELTA_PHI : Math.PI / 50000,
+        
+        init : function(context){
+            this.x = this.renderer.getRandomValue({min : 0, max : this.width});
+            this.y = this.renderer.getRandomValue({min : 0, max : this.height});
+            this.radius = this.renderer.getRandomValue(this.RADIUS_RANGE);
+            this.maxCount = this.renderer.getRandomValue(this.COUNT_RANGE) | 0;
+            this.count = this.maxCount;
+            this.theta = 0;
+            this.phi = 0;
+            
+            this.gradient = context.createRadialGradient(0, 0, 0, 0, 0, this.radius);
+            this.gradient.addColorStop(0, 'hsla(220, 80%, 100%, 1)');
+            this.gradient.addColorStop(0.1, 'hsla(220, 80%, 80%, 1)');
+            this.gradient.addColorStop(0.25, 'hsla(220, 80%, 50%, 1)');
+            this.gradient.addColorStop(1, 'hsla(220, 80%, 30%, 0)');
+        },
+        render : function(context){
+            context.save();
+            context.globalAlpha = Math.abs(Math.cos(this.theta));
+            context.translate(this.width / 2, this.height / 2);
+            context.rotate(this.phi);
+            context.translate(this.x - this.width / 2, this.y - this.height / 2);
+            context.beginPath();
+            context.fillStyle = this.gradient;
+            context.arc(0, 0, this.radius, 0, Math.PI * 2, false);
+            context.fill();
+            context.restore();
+            
+            if(--this.count == 0){
+                this.theta = Math.PI;
+                this.count = this.maxCount;
+            }
+            if(this.theta > 0){
+                this.theta -= this.DELTA_THETA;
+            }
+            this.phi += this.DELTA_PHI;
+            this.phi %= Math.PI / 2;
+        }
+    };
+    var FIREWORK = function(width, height, renderer){
+        this.width = width;
+        this.height = height;
+        this.renderer = renderer;
+        this.init();
+    };
+    FIREWORK.prototype = {
+        COLOR : 'hsl(%hue, 80%, 60%)',
+        PARTICLE_COUNT : 300,
+        DELTA_OPACITY : 0.01,
+        RADIUS : 2,
+        VELOCITY : -3,
+        WAIT_COUNT_RANGE : {min : 30, max : 60},
+        THRESHOLD : 50,
+        DELTA_THETA : Math.PI / 10,
+        GRAVITY : 0.002,
+        
+        init : function(){
+            this.setParameters();
+            this.createParticles();
+        },
+        setParameters : function(){
+            var hue = 256 * Math.random() | 0;
+                
+            this.x = this.renderer.getRandomValue({min : this.width / 8, max : this.width * 7 / 8});
+            this.y = this.renderer.getRandomValue({min : this.height / 4, max : this.height / 2});
+            this.x0 = this.x;
+            this.y0 = this.height + this.RADIUS;
+            this.color = this.COLOR.replace('%hue', hue);
+            this.status = 0;
+            this.theta = 0;
+            this.waitCount = this.renderer.getRandomValue(this.WAIT_COUNT_RANGE);
+            this.opacity = 1;
+            this.velocity = this.VELOCITY;
+            this.particles = [];
+        },
+        createParticles : function(){
+            for(var i = 0, length = this.PARTICLE_COUNT; i < length; i++){
+                this.particles.push(new PARTICLE(this.x, this.y, this.renderer));
+            }
+        },
+        getOpacity : function(){
+            return this.status == 2 ? this.opacity : 0;
+        },
+        render : function(context){
+            switch(this.status){
+            case 0:
+                context.save();
+                context.fillStyle = this.color;
+                context.globalCompositeOperation = 'lighter';
+                context.globalAlpha = (this.y0 - this.y) <= this.THRESHOLD ? ((this.y0 - this.y) / this.THRESHOLD) : 1;
+                context.translate(this.x0 + Math.sin(this.theta) / 2, this.y0);
+                context.scale(0.8, 2.4);
+                context.beginPath();
+                context.arc(0, 0, this.RADIUS, 0, Math.PI * 2, false);
+                context.fill();
+                context.restore();
+                
+                this.y0 += this.velocity;
+                
+                if(this.y0 <= this.y){
+                    this.status = 1;
+                }
+                this.theta += this.DELTA_THETA;
+                this.theta %= Math.PI * 2;
+                this.velocity += this.GRAVITY;
+                return true;
+            case 1:
+                if(--this.waitCount <= 0){
+                    this.status = 2;
+                }
+                return true;
+            case 2:
+                context.save();
+                context.globalCompositeOperation = 'lighter';
+                context.globalAlpha = this.opacity;
+                context.fillStyle = this.color;
+                
+                for(var i = 0, length = this.particles.length; i < length; i++){
+                    this.particles[i].render(context, this.opacity);
+                }
+                context.restore();
+                this.opacity -= this.DELTA_OPACITY;
+                return this.opacity > 0;
+            }
+        }
+    };
+    var PARTICLE = function(x, y, renderer){
+        this.x = x;
+        this.y = y;
+        this.renderer = renderer;
+        this.init();
+    };
+    PARTICLE.prototype = {
+        RADIUS : 1.5,
+        VELOCITY_RANGE : {min : 0, max : 3},
+        GRAVITY : 0.02,
+        FRICTION : 0.98,
+        
+        init : function(){
+            var radian = Math.PI * 2 * Math.random(),
+                velocity = (1 - Math.pow(Math.random(), 6)) * this.VELOCITY_RANGE.max,
+                rate = Math.random();
+                
+            this.vx = velocity * Math.cos(radian) * rate;
+            this.vy = velocity * Math.sin(radian) * rate;
+        },
+        render : function(context, opacity){
+            context.beginPath();
+            context.arc(this.x, this.y, this.RADIUS, 0, Math.PI * 2, false);
+            context.fill();
+            
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy += this.GRAVITY;
+            this.vx *= this.FRICTION;
+            this.vy *= this.FRICTION;
+        }
+    };
+    $(function(){
+        RENDERER.init();
+    });
+}

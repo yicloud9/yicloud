@@ -26,6 +26,8 @@
 }
 .chat ul .message-text {
     vertical-align: bottom;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 .message-left {
