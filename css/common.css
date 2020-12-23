@@ -19,7 +19,7 @@ body {
 }
 .love-intro .content {
     font-family: 'Zhi Mang Xing', cursive;
-    font-size: 42px;
+    font-size: 36px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -59,10 +59,10 @@ body {
 }
 @keyframes scaleText {
     0% {
-        transform: translateX(-50%) scale(0.9);
+        transform: translateX(-50%) scale(1);
     }
     to {
-        transform: translateX(-50%) scale(1.4);
+        transform: translateX(-50%) scale(1.2);
     }
 }
 .bg {
