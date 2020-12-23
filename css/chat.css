@@ -15,12 +15,12 @@
     border-radius: 6px;
 }
 .chat ul .l-avatar {
-    background: url('../img/hy.jpeg') no-repeat center center;
+    background: url('https://cdn.brambling.cn/temp/hy.jpeg') no-repeat center center;
     background-size: cover;
     left: 0;
 }
 .chat ul .r-avatar {
-    background: url('../img/zx.jpeg') no-repeat center center;
+    background: url('https://cdn.brambling.cn/temp/zx.jpeg') no-repeat center center;
     background-size: cover;
     right: 0;
 }

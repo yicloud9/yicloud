@@ -108,7 +108,7 @@ body {
     display: block;
     width: 100px;
     height: 100px;
-    background: url(../img/love.png) 0 0 no-repeat;
+    background: url("https://cdn.brambling.cn/temp/love.png") 0 0 no-repeat;
     background-size: 2900%;
     position: absolute;
     z-index: 101;
