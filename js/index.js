@@ -412,7 +412,6 @@ const typedOptions = [
     }
     $scene1.fadeIn()
     loadingImage().then(()=> {
-        return
         $scene1.fadeOut()
         setTimeout(()=> {
             $('#snow').fadeIn() 
@@ -488,10 +487,15 @@ const typedOptions = [
         if(id === undefined) {
             bgNode.style.backgroundImage = ''    
         } else {
+            // https://cdn.brambling.cn/temp/bg0.jpeg
             if(typeof id === 'number') {
-                bgNode.style.backgroundImage = 'url(./img/bg' + ((id+1)%10) + '.jpeg)'
+                const prefix = 'url(https://cdn.brambling.cn/temp/bg'
+                // const prefix = 'url(./img/bg'
+                bgNode.style.backgroundImage = prefix + ((id+1)%10) + '.jpeg)'
             } else {
-                bgNode.style.backgroundImage = 'url(./img/' + id + '.jpeg)'
+                const prefix = 'url(https://cdn.brambling.cn/temp/'
+                // const prefix = 'url(./img/'
+                bgNode.style.backgroundImage = prefix + id + '.jpeg)'
             }
         }
     }
@@ -524,23 +528,48 @@ const typedOptions = [
 
 function loadingImage() {
     return new Promise((resolve, reject)=> {
+        const imgList = [
+            'https://cdn.brambling.cn/temp/en.jpeg',
+            'https://cdn.brambling.cn/temp/china.png',
+        ]
+        for(let i = 0; i <= 10; i++) {
+            imgList.push('https://cdn.brambling.cn/temp/bg' + i + '.jpeg')
+        }
         let count = 0
-        let timer = null
+        for(let i = 0; i < imgList.length; i++) {
+            const oImg = new Image()
+            oImg.src = imgList[i]
+            oImg.onload = function() {
+                progress()
+            }
+            oImg.onerror = function () {
+                progress()
+            }
+        }
         function progress() {
+            count++
+            document.getElementById('loadingProgress').innerHTML = Math.ceil((count/(imgList.length*2))*100) + '%'
+            if(count === imgList.length) {
+                timeProgress()
+            }
+        }
+
+        let timerCount = 60
+        let timer = null
+        function timeProgress() {
             timer = setTimeout(()=> {
-                count++
-                if(count >= 101) {
+                timerCount++
+                if(timerCount >= 100) {
                     clearTimeout(timer)
                     timer = null
                     resolve()
                     return
                 } else {
-                    document.getElementById('loadingProgress').innerHTML = count + '%'
+                    document.getElementById('loadingProgress').innerHTML = timerCount + '%'
                 }
-                progress()
-            }, 100)
+                timeProgress()
+            }, 150)
         }
-        progress()
     })
 }
 
