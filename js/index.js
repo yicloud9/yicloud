@@ -412,7 +412,7 @@ const typedOptions = [
     }
     $scene1.fadeIn()
     loadingImage().then(()=> {
-        return
+        return 
         $scene1.fadeOut()
         setTimeout(()=> {
             $('#snow').fadeIn() 
