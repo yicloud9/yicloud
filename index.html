@@ -132,6 +132,7 @@
     if(typeof WeixinJSBridge !== "undefined") {
       document.addEventListener('WeixinJSBridgeReady', function() {
         init() 
+        console.log('auto play')
         videoElement.play();
         
       },
