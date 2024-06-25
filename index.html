@@ -31,7 +31,13 @@
 
 <body>
   <div id="videoContainer">
-      <video id="videoElement" width="260" height="480" playsinline></video>
+      <video 
+        id="videoElement" 
+        width="260" 
+        height="480" 
+        x5-video-player-type="h5" 
+        x5-video-orientation="portraint"
+        playsinline></video>
       <!-- <canvas id="overlayCanvas" width="1080" height="1920"></canvas> -->
   </div>
   <div class="btns">
@@ -126,11 +132,8 @@
     if(typeof WeixinJSBridge !== "undefined") {
       document.addEventListener('WeixinJSBridgeReady', function() {
         init() 
-
-        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-          console.log('getNetworkType', 1111)
-          videoElement.play();
-        })
+        videoElement.play();
+        
       },
       false)
     } else {
