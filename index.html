@@ -31,12 +31,13 @@
 
 <body>
   <div id="videoContainer">
-      <video id="videoElement" width="260" height="480" autoplay playsinline></video>
-      <canvas id="overlayCanvas" width="1080" height="1920"></canvas>
+      <video id="videoElement" width="260" height="480" playsinline></video>
+      <!-- <canvas id="overlayCanvas" width="1080" height="1920"></canvas> -->
   </div>
   <div class="btns">
     <button id="startButton">Start</button>
     <button id="stopButton">Stop</button>
+    <button id="video">Vdieo</button>
   <a id="downloadLink" style="display: none;">Download Video</a>
   </div>
   <script>
@@ -46,8 +47,9 @@
       const overlayCanvas = document.getElementById('overlayCanvas');
       const startButton = document.getElementById('startButton');
       const stopButton = document.getElementById('stopButton');
+      const videoButton = document.getElementById('video');
       const downloadLink = document.getElementById('downloadLink');
-      const overlayContext = overlayCanvas.getContext('2d');
+      // const overlayContext = overlayCanvas.getContext('2d');
   
       let mediaRecorder;
       let recordedChunks = [];
@@ -56,16 +58,15 @@
       let recording = false;
       
       // Load the overlay image
-      const overlayImage = new Image();
-      overlayImage.src = 'test.jpg';
-      overlayImage.onload = () => {
-        overlayContext.drawImage(overlayImage, 0, 0, overlayCanvas.width, overlayCanvas.height);
-      };
+      // const overlayImage = new Image();
+      // overlayImage.src = 'test.jpg';
+      // overlayImage.onload = () => {
+      //   overlayContext.drawImage(overlayImage, 0, 0, overlayCanvas.width, overlayCanvas.height);
+      // };
       // Get access to the camera
       navigator.mediaDevices.getUserMedia({ video: { width: {ideal: 720}, height: {ideal: 1280} } })
         .then(mediaStream => {
           stream = mediaStream;
-          console.log(3333, videoElement.srcObject)
           videoElement.srcObject = stream;
   
           // Create a canvas stream
@@ -100,6 +101,10 @@
           console.log('Recording started');
         }
       });
+
+      videoButton.addEventListener('click', () => {
+        videoElement.play();
+      })
   
       stopButton.addEventListener('click', () => {
         if (recording) {
