@@ -116,7 +116,7 @@
       }
       
     }
-    if(typeof WeixinJSBridge === "undefined") {
+    if(typeof WeixinJSBridge !== "undefined") {
       document.addEventListener('WeixinJSBridgeReady', function() {
         init() 
       },
