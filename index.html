@@ -126,6 +126,10 @@
     if(typeof WeixinJSBridge !== "undefined") {
       document.addEventListener('WeixinJSBridgeReady', function() {
         init() 
+
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+          videoElement.play();
+        })
       },
       false)
     } else {
