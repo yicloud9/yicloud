@@ -1,1 +1,121 @@
-<html>test</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Recorder</title>
+    <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script> -->
+    <style>
+        #videoContainer {
+            position: relative;
+            width: 100%;
+            max-width: 1080px;
+            margin: auto;
+        }
+        #videoElement, #overlayCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        button {
+          width: 200px;
+          height: 200px;
+        }
+        .btns {
+          position: absolute;
+          z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="videoContainer">
+      <video id="videoElement" width="260" height="480" autoplay playsinline></video>
+      <canvas id="overlayCanvas" width="1080" height="1920"></canvas>
+  </div>
+  <div class="btns">
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+  <a id="downloadLink" style="display: none;">Download Video</a>
+  </div>
+  <script>
+    // var vConsole = new window.VConsole();
+    const videoElement = document.getElementById('videoElement');
+    const overlayCanvas = document.getElementById('overlayCanvas');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const downloadLink = document.getElementById('downloadLink');
+    const overlayContext = overlayCanvas.getContext('2d');
+
+    let mediaRecorder;
+    let recordedChunks = [];
+    let stream;
+    let canvasStream;
+    let recording = false;
+
+
+    // Load the overlay image
+    const overlayImage = new Image();
+    overlayImage.src = 'test.jpg';
+    overlayImage.onload = () => {
+      overlayContext.drawImage(overlayImage, 0, 0, overlayCanvas.width, overlayCanvas.height);
+    };
+    // Get access to the camera
+    navigator.mediaDevices.getUserMedia({ video: { width: {ideal: 720}, height: {ideal: 1280} } })
+      .then(mediaStream => {
+        stream = mediaStream;
+        videoElement.srcObject = stream;
+
+        // Create a canvas stream
+        canvasStream = overlayCanvas.captureStream(30); // 30 FPS
+
+        // Combine video stream and canvas stream
+        const combinedStream = new MediaStream([...stream.getVideoTracks(), ...canvasStream.getVideoTracks()]);
+
+        mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/mp4' });
+
+        mediaRecorder.ondataavailable = event => {
+          if (event.data.size > 0) {
+            recordedChunks.push(event.data);
+          }
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: 'video/mp4' });
+          recordedChunks = [];
+          saveVideo(blob);
+        };
+      })
+      .catch(error => {
+        console.error('Error accessing media devices.', error);
+      });
+
+    startButton.addEventListener('click', () => {
+      if (!recording) {
+        mediaRecorder.start();
+        recording = true;
+        console.log('Recording started');
+      }
+    });
+
+    stopButton.addEventListener('click', () => {
+      if (recording) {
+        mediaRecorder.stop();
+        recording = false;
+        console.log('Recording stopped');
+      }
+    });
+
+    function saveVideo(blob) {
+      const url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.download = 'recording.mp4';
+      downloadLink.style.display = 'block';
+      downloadLink.textContent = 'Download Video';
+    }
+
+  </script>
+</body>
+
+</html>
