@@ -65,6 +65,7 @@
       navigator.mediaDevices.getUserMedia({ video: { width: {ideal: 720}, height: {ideal: 1280} } })
         .then(mediaStream => {
           stream = mediaStream;
+          console.log(3333, videoElement.srcObject)
           videoElement.srcObject = stream;
   
           // Create a canvas stream
