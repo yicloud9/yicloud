@@ -82,7 +82,7 @@
           // const combinedStream = new MediaStream([...stream.getVideoTracks(), ...canvasStream.getVideoTracks()]);
           const combinedStream = new MediaStream([...stream.getVideoTracks()]);
   
-          mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm' });
+          mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/mp4' });
   
           mediaRecorder.ondataavailable = event => {
             if (event.data.size > 0) {
@@ -91,7 +91,7 @@
           };
   
           mediaRecorder.onstop = () => {
-            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+            const blob = new Blob(recordedChunks, { type: 'video/mp4' });
             recordedChunks = [];
             saveVideo(blob);
           };
