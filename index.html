@@ -43,14 +43,14 @@
       <!-- <canvas id="overlayCanvas" width="1080" height="1920"></canvas> -->
   </div>
   <div class="btns">
-<!--     <button id="startButton">Start</button>
+    <button id="startButton">Start</button>
     <button id="stopButton">Stop</button>
     <button id="video">Vdieo</button>
-  <a id="downloadLink" style="display: none;">Download Video</a> -->
+  <a id="downloadLink" style="display: none;">Download Video</a>
 
-     <button id="start">Start Recording</button>
+<!--      <button id="start">Start Recording</button>
     <button id="stop">Stop Recording</button>
-    <video id="video" controls autoplay></video>
+    <video id="video" controls autoplay></video> -->
   </div>
   <script>
     function init() {
@@ -136,51 +136,51 @@
       }
       
     }
-    // if(typeof WeixinJSBridge !== "undefined") {
-    //   document.addEventListener('WeixinJSBridgeReady', function() {
-    //     init() 
-    //     videoElement.play();
+    if(typeof WeixinJSBridge !== "undefined") {
+      document.addEventListener('WeixinJSBridgeReady', function() {
+        init() 
+        videoElement.play();
         
-    //   },
-    //   false)
-    // } else {
-    //   init()
-    // }
+      },
+      false)
+    } else {
+      init()
+    }
     
 
   </script>
   <script>
-    let recorder;
-    let video = document.getElementById('video');
+    // let recorder;
+    // let video = document.getElementById('video');
 
-    document.getElementById('start').onclick = async () => {
-        let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        video.srcObject = stream;
+    // document.getElementById('start').onclick = async () => {
+    //     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    //     video.srcObject = stream;
 
-        recorder = RecordRTC(stream, {
-            type: 'video',
-            mimeType: 'video/mp4', // 指定 MP4 格式
-            bitsPerSecond: 128000 // 可选：设置比特率
-        });
+    //     recorder = RecordRTC(stream, {
+    //         type: 'video',
+    //         mimeType: 'video/mp4', // 指定 MP4 格式
+    //         bitsPerSecond: 128000 // 可选：设置比特率
+    //     });
 
-        recorder.startRecording();
-    };
+    //     recorder.startRecording();
+    // };
 
-    document.getElementById('stop').onclick = () => {
-        recorder.stopRecording(() => {
-            let blob = recorder.getBlob();
-            video.src = URL.createObjectURL(blob);
+    // document.getElementById('stop').onclick = () => {
+    //     recorder.stopRecording(() => {
+    //         let blob = recorder.getBlob();
+    //         video.src = URL.createObjectURL(blob);
 
-            // 下载视频
-            let a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = URL.createObjectURL(blob);
-            a.download = 'video.mp4';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        });
-    };
+    //         // 下载视频
+    //         let a = document.createElement('a');
+    //         a.style.display = 'none';
+    //         a.href = URL.createObjectURL(blob);
+    //         a.download = 'video.mp4';
+    //         document.body.appendChild(a);
+    //         a.click();
+    //         document.body.removeChild(a);
+    //     });
+    // };
   </script>
 </body>
 
