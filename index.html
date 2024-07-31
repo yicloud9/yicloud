@@ -89,7 +89,7 @@
           const combinedStream = new MediaStream([...stream.getVideoTracks()]);
   
           mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/mp4; codecs="avc1.42E018, mp4a.40.2' });
-  
+          console.log(1111, MediaRecorder.isTypeSupported('MediaRecorder.isTypeSupported'));
           mediaRecorder.ondataavailable = event => {
             console.log(1111, event.data.size)
             if (event.data.size > 0) {
