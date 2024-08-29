@@ -63,7 +63,14 @@
         output: handleEncodedChunk,
         error: handleEncoderError
       });
-      
+
+      const webmDecoderConfig = {
+        codec: 'vp09.00.10.08',
+        codedHeight: 720,
+        codedWidth: 1280
+      };
+      webmDecoder.configure(webmDecoderConfig);
+
       const initialData = new EncodedVideoChunk({
         type: 'key',
         data: webmData,
