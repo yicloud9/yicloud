@@ -1,187 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Recorder</title>
-    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
-      <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-
-    <style>
-        #videoContainer {
-            position: relative;
-            width: 100%;
-            max-width: 1080px;
-            margin: auto;
-        }
-        #videoElement, #overlayCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        button {
-          width: 200px;
-          height: 200px;
-        }
-        .btns {
-          position: absolute;
-          z-index: 2;
-        }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebM to MP4 Converter</title>
 </head>
-
 <body>
-  <div id="videoContainer">
-      <video 
-        id="videoElement" 
-        width="260" 
-        height="480" 
-        x5-video-player-type="h5" 
-        x5-video-orientation="portraint"
-        playsinline></video>
-      <!-- <canvas id="overlayCanvas" width="1080" height="1920"></canvas> -->
-  </div>
-  <div class="btns">
-    <button id="startButton">Start</button>
-    <button id="stopButton">Stop</button>
-    <button id="video">Vdieo</button>
-  <a id="downloadLink" style="display: none;">Download Video</a>
-
-<!--      <button id="start">Start Recording</button>
-    <button id="stop">Stop Recording</button>
-    <video id="video" controls autoplay></video> -->
-  </div>
+  <h1>WebM to MP4 Converter</h1>
+  <input type="file" id="fileInput" accept="video/webm" />
+  <button id="convertButton" disabled>Convert to MP4</button>
   <script>
-    function init() {
-      var vConsole = new window.VConsole();
-      const videoElement = document.getElementById('videoElement');
-      const overlayCanvas = document.getElementById('overlayCanvas');
-      const startButton = document.getElementById('startButton');
-      const stopButton = document.getElementById('stopButton');
-      const videoButton = document.getElementById('video');
-      const downloadLink = document.getElementById('downloadLink');
-      // const overlayContext = overlayCanvas.getContext('2d');
-  
-      let mediaRecorder;
-      let recordedChunks = [];
-      let stream;
-      let canvasStream;
-      let recording = false;
-      
-      // Load the overlay image
-      // const overlayImage = new Image();
-      // overlayImage.src = 'test.jpg';
-      // overlayImage.onload = () => {
-      //   overlayContext.drawImage(overlayImage, 0, 0, overlayCanvas.width, overlayCanvas.height);
-      // };
-      // Get access to the camera
-      navigator.mediaDevices.getUserMedia({ video: { width: {ideal: 720}, height: {ideal: 1280} } })
-        .then(mediaStream => {
-          stream = mediaStream;
-          videoElement.srcObject = stream;
-  
-          // Create a canvas stream
-          // canvasStream = overlayCanvas.captureStream(30); // 30 FPS
-  
-          // Combine video stream and canvas stream
-          // const combinedStream = new MediaStream([...stream.getVideoTracks(), ...canvasStream.getVideoTracks()]);
-          const combinedStream = new MediaStream([...stream.getVideoTracks()]);
-  
-          mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/mp4; codecs="avc1.42E018, mp4a.40.2' });
-          console.log(1111, MediaRecorder.isTypeSupported('video/mp4; codecs="avc1.42E018, mp4a.40.2'));
-          mediaRecorder.ondataavailable = event => {
-            console.log(1111, event.data.size)
-            if (event.data.size > 0) {
-              recordedChunks.push(event.data);
-            }
-          };
-  
-          mediaRecorder.onstop = () => {
-            const blob = new Blob(recordedChunks, { type: 'video/mp4' });
-            recordedChunks = [];
-            saveVideo(blob);
-          };
-        })
-        .catch(error => {
-          console.error('Error accessing media devices.', error);
-        });
-  
-      startButton.addEventListener('click', () => {
-        if (!recording) {
-          mediaRecorder.start();
-          recording = true;
-          console.log('Recording started');
-        }
-      });
+    const fileInput = document.getElementById('fileInput');
+    const convertButton = document.getElementById('convertButton');
 
-      videoButton.addEventListener('click', () => {
-        videoElement.play();
-      })
-  
-      stopButton.addEventListener('click', () => {
-        if (recording) {
-          mediaRecorder.stop();
-          recording = false;
-          console.log('Recording stopped');
-        }
-      });
-  
-      function saveVideo(blob) {
-        const url = URL.createObjectURL(blob);
-        downloadLink.href = url;
-        downloadLink.download = 'recording.webm';
-        downloadLink.style.display = 'block';
-        downloadLink.textContent = 'Download Video';
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (file && file.type === 'video/webm') {
+        convertButton.disabled = false;
+      } else {
+        convertButton.disabled = true;
       }
-      
-    }
-    if(typeof WeixinJSBridge !== "undefined") {
-      document.addEventListener('WeixinJSBridgeReady', function() {
-        init() 
-        videoElement.play();
-        
-      },
-      false)
-    } else {
-      init()
-    }
-    
+    });
 
-  </script>
-  <script>
-    // let recorder;
-    // let video = document.getElementById('video');
+    convertButton.addEventListener('click', async () => {
+      if (!('VideoDecoder' in window && 'VideoEncoder' in window)) {
+        console.error('WebCodecs API is not supported in this browser');
+        return;
+      }
 
-    // document.getElementById('start').onclick = async () => {
-    //     let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    //     video.srcObject = stream;
+      const file = fileInput.files[0];
+      const webmData = await file.arrayBuffer();
 
-    //     recorder = RecordRTC(stream, {
-    //         type: 'video',
-    //         mimeType: 'video/mp4', // 指定 MP4 格式
-    //         bitsPerSecond: 128000 // 可选：设置比特率
-    //     });
+      const webmDecoder = new VideoDecoder({
+        output: handleDecodedChunk,
+        error: handleDecoderError
+      });
 
-    //     recorder.startRecording();
-    // };
+      const mp4Encoder = new VideoEncoder({
+        output: handleEncodedChunk,
+        error: handleEncoderError
+      });
 
-    // document.getElementById('stop').onclick = () => {
-    //     recorder.stopRecording(() => {
-    //         let blob = recorder.getBlob();
-    //         video.src = URL.createObjectURL(blob);
+      const encodedChunks = [];
 
-    //         // 下载视频
-    //         let a = document.createElement('a');
-    //         a.style.display = 'none';
-    //         a.href = URL.createObjectURL(blob);
-    //         a.download = 'video.mp4';
-    //         document.body.appendChild(a);
-    //         a.click();
-    //         document.body.removeChild(a);
-    //     });
-    // };
+      const handleDecodedChunk = (videoFrame) => {
+        mp4Encoder.encode(videoFrame, { decoderConfig: videoFrame.decoderConfig });
+        videoFrame.close();
+      };
+
+      const handleEncodedChunk = (encodedChunk) => {
+        encodedChunks.push(encodedChunk.data);
+      };
+
+      const handleDecoderError = (error) => {
+        console.error('Decoder error:', error);
+      };
+
+      const handleEncoderError = (error) => {
+        console.error('Encoder error:', error);
+      };
+
+      const initialData = new EncodedVideoChunk({
+        type: 'key',
+        data: webmData,
+      });
+
+      webmDecoder.decode(initialData);
+
+      mp4Encoder.configure({
+        codec: 'av01.0.08M.08',
+        width: 1280,
+        height: 720,
+        bitrate: 2000000,
+        framerate: 30,
+      });
+
+      await mp4Encoder.flush();
+
+      const mp4Blob = new Blob(encodedChunks, { type: 'video/mp4' });
+      const mp4URL = URL.createObjectURL(mp4Blob);
+
+      const a = document.createElement('a');
+      a.href = mp4URL;
+      a.download = 'converted.mp4';
+      a.click();
+      URL.revokeObjectURL(mp4URL);
+    });
   </script>
 </body>
-
 </html>
