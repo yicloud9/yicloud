@@ -57,7 +57,7 @@
       const webmDecoder = new VideoDecoder({
         output: handleDecodedChunk,
         error: handleDecoderError,
-        decoderConfig: webmDecoderConfig // 传递解码器配置信息
+        decoderConfig: webmDecoderInit.config
       });
 
       const mp4Encoder = new VideoEncoder({
