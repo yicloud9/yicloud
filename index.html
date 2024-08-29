@@ -71,8 +71,17 @@
       };
       webmDecoder.configure(webmDecoderConfig);
 
-      const initialData = new EncodedVideoChunk({
+      // 传递一个空的关键帧数据块
+      const keyFrameChunk = new EncodedVideoChunk({
         type: 'key',
+        data: new ArrayBuffer(0),
+        timestamp: 0,
+      });
+      webmDecoder.decode(keyFrameChunk);
+      
+      // 然后传递实际的视频数据
+      const initialData = new EncodedVideoChunk({
+        type: 'delta',
         data: webmData,
         timestamp: 0,
       });
