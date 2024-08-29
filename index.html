@@ -31,9 +31,9 @@
       const file = fileInput.files[0];
       const webmData = await file.arrayBuffer();
 
-      // 从 WebM 数据中提取解码器配置信息
-      const webmDecoderInit = await new VideoDecoder().initResponse(new Response(webmData));
-      const webmDecoderConfig = webmDecoderInit.config;
+      // // 从 WebM 数据中提取解码器配置信息
+      // const webmDecoderInit = await new VideoDecoder().initResponse(new Response(webmData));
+      // const webmDecoderConfig = webmDecoderInit.config;
       
       const encodedChunks = [];
 
@@ -56,8 +56,7 @@
 
       const webmDecoder = new VideoDecoder({
         output: handleDecodedChunk,
-        error: handleDecoderError,
-        decoderConfig: webmDecoderInit.config
+        error: handleDecoderError
       });
 
       const mp4Encoder = new VideoEncoder({
