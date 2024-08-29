@@ -1,112 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebM to MP4 Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebM to MP4 Converter</title>
 </head>
 <body>
-  <h1>WebM to MP4 Converter</h1>
-  <input type="file" id="fileInput" accept="video/webm" />
-  <button id="convertButton" disabled>Convert to MP4</button>
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    const convertButton = document.getElementById('convertButton');
+    <h1>Convert WebM to MP4</h1>
+    <input type="file" id="fileInput" accept=".webm">
+    <button id="convertButton">Convert</button>
 
-    fileInput.addEventListener('change', async () => {
-      const file = fileInput.files[0];
-      if (file && file.type === 'video/webm') {
-        convertButton.disabled = false;
-      } else {
-        convertButton.disabled = true;
-      }
-    });
+    <script>
+        document.getElementById('convertButton').addEventListener('click', () => {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
 
-    convertButton.addEventListener('click', async () => {
-      if (!('VideoDecoder' in window && 'VideoEncoder' in window)) {
-        console.error('WebCodecs API is not supported in this browser');
-        return;
-      }
+            if (!file) {
+                alert('Please select a WebM file to convert.');
+                return;
+            }
 
-      const file = fileInput.files[0];
-      const webmData = await file.arrayBuffer();
+            if (!('VideoEncoder' in window) || !('VideoDecoder' in window)) {
+                alert('VideoEncoder or VideoDecoder API is not supported in this browser.');
+                return;
+            }
 
-      // // 从 WebM 数据中提取解码器配置信息
-      // const webmDecoderInit = await new VideoDecoder().initResponse(new Response(webmData));
-      // const webmDecoderConfig = webmDecoderInit.config;
-      
-      const encodedChunks = [];
+            const videoDecoderConfig = {
+                codec: 'vp8',
+                hardwareAcceleration: 'prefer-hardware'
+            };
 
-      const handleDecodedChunk = (videoFrame) => {
-        mp4Encoder.encode(videoFrame, { decoderConfig: videoFrame.decoderConfig });
-        videoFrame.close();
-      };
+            const videoEncoderConfig = {
+                codec: 'avc1.42E01E',
+                width: 1920,
+                height: 1080,
+                bitrate: 2_000_000,
+                framerate: 30
+            };
 
-      const handleEncodedChunk = (encodedChunk) => {
-        encodedChunks.push(encodedChunk.data);
-      };
+            const videoDecoder = new VideoDecoder({
+                output: handleDecodedFrame,
+                error: handleError
+            });
 
-      const handleDecoderError = (error) => {
-        console.error('Decoder error:', error);
-      };
+            const videoEncoder = new VideoEncoder({
+                output: handleEncodedChunk,
+                error: handleError
+            });
 
-      const handleEncoderError = (error) => {
-        console.error('Encoder error:', error);
-      };
+            videoDecoder.configure(videoDecoderConfig);
+            videoEncoder.configure(videoEncoderConfig);
 
-      const webmDecoder = new VideoDecoder({
-        output: handleDecodedChunk,
-        error: handleDecoderError
-      });
+            file.arrayBuffer().then(buffer => {
+                const chunk = new EncodedVideoChunk({
+                    type: 'key',
+                    timestamp: 0,
+                    data: buffer
+                });
+                videoDecoder.decode(chunk);
+            });
 
-      const mp4Encoder = new VideoEncoder({
-        output: handleEncodedChunk,
-        error: handleEncoderError
-      });
+            let encodedChunks = [];
 
-      const webmDecoderConfig = {
-        codec: 'vp09.00.10.08',
-        codedHeight: 720,
-        codedWidth: 1280
-      };
-      webmDecoder.configure(webmDecoderConfig);
+            function handleDecodedFrame(frame) {
+                videoEncoder.encode(frame);
+                frame.close();
+            }
 
-      // 传递一个空的关键帧数据块
-      const keyFrameChunk = new EncodedVideoChunk({
-        type: 'key',
-        data: new ArrayBuffer(0),
-        timestamp: 0,
-      });
-      webmDecoder.decode(keyFrameChunk);
-      
-      // 然后传递实际的视频数据
-      const initialData = new EncodedVideoChunk({
-        type: 'delta',
-        data: webmData,
-        timestamp: 0,
-      });
+            function handleEncodedChunk(chunk) {
+                encodedChunks.push(chunk.data);
+            }
 
-      webmDecoder.decode(initialData);
+            function handleError(error) {
+                console.error('Error in VideoEncoder or VideoDecoder:', error);
+            }
 
-      mp4Encoder.configure({
-        codec: 'av01.0.08M.08',
-        width: 1280,
-        height: 720,
-        bitrate: 2000000,
-        framerate: 30,
-      });
+            function createMp4File() {
+                const mp4Blob = new Blob(encodedChunks, { type: 'video/mp4' });
+                const mp4Url = URL.createObjectURL(mp4Blob);
+                const downloadLink = document.createElement('a');
+                downloadLink.href = mp4Url;
+                downloadLink.download = 'converted-video.mp4';
+                downloadLink.click();
+            }
 
-      await mp4Encoder.flush();
-
-      const mp4Blob = new Blob(encodedChunks, { type: 'video/mp4' });
-      const mp4URL = URL.createObjectURL(mp4Blob);
-
-      const a = document.createElement('a');
-      a.href = mp4URL;
-      a.download = 'converted.mp4';
-      a.click();
-      URL.revokeObjectURL(mp4URL);
-    });
-  </script>
+            videoEncoder.flush().then(() => {
+                createMp4File();
+            });
+        });
+    </script>
 </body>
 </html>
