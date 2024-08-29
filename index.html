@@ -26,14 +26,14 @@
             }
 
             const videoDecoderConfig = {
-                codec: 'vp8',
+                codec: 'video/webm;codecs=h264',
                 hardwareAcceleration: 'prefer-hardware'
             };
 
             const videoEncoderConfig = {
                 codec: 'avc1.42E01E',
-                width: 1920,
-                height: 1080,
+                width: 720,
+                height: 1280,
                 bitrate: 2_000_000,
                 framerate: 30
             };
