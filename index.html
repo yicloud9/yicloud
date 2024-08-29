@@ -63,6 +63,7 @@
       const initialData = new EncodedVideoChunk({
         type: 'key',
         data: webmData,
+        timestamp: 0,
       });
 
       webmDecoder.decode(initialData);
