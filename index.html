@@ -40,12 +40,12 @@
 
             const videoDecoder = new VideoDecoder({
                 output: handleDecodedFrame,
-                error: handleError
+                error: handleErrorD
             });
 
             const videoEncoder = new VideoEncoder({
                 output: handleEncodedChunk,
-                error: handleError
+                error: handleErrorE
             });
 
             videoDecoder.configure(videoDecoderConfig);
@@ -71,8 +71,12 @@
                 encodedChunks.push(chunk.data);
             }
 
-            function handleError(error) {
-                console.error('Error in VideoEncoder or VideoDecoder:', error);
+            function handleErrorD(error) {
+                console.error('Error in VideoDecoder:', error);
+            }
+
+            function handleErrorE(error) {
+                console.error('Error in VideoEncoder', error);
             }
 
             function createMp4File() {
