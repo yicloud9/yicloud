@@ -31,16 +31,6 @@
       const file = fileInput.files[0];
       const webmData = await file.arrayBuffer();
 
-      const webmDecoder = new VideoDecoder({
-        output: handleDecodedChunk,
-        error: handleDecoderError
-      });
-
-      const mp4Encoder = new VideoEncoder({
-        output: handleEncodedChunk,
-        error: handleEncoderError
-      });
-
       const encodedChunks = [];
 
       const handleDecodedChunk = (videoFrame) => {
@@ -60,6 +50,16 @@
         console.error('Encoder error:', error);
       };
 
+      const webmDecoder = new VideoDecoder({
+        output: handleDecodedChunk,
+        error: handleDecoderError
+      });
+
+      const mp4Encoder = new VideoEncoder({
+        output: handleEncodedChunk,
+        error: handleEncoderError
+      });
+      
       const initialData = new EncodedVideoChunk({
         type: 'key',
         data: webmData,
